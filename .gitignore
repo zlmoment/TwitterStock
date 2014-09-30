@@ -14,6 +14,11 @@ release.properties
 *.ear
 hs_err_pid*
 
+# Eclipse
+.settings/
+.classpath
+.project
+
 # My own
 twitter4j.properties
 Makefile
