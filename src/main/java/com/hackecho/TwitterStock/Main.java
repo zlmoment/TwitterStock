@@ -42,19 +42,17 @@ public class Main {
 				DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 				String sql = "INSERT INTO data(username, tweetId, place, date, profileLoc, geoLoc, content, hashtags)" 
 				                  + " VALUES ('" + username + "', "
-						          + "         '" + String.valueOf(tweetId) + "', "
-						          + "         '" + place + "', "
-						          + "         '" + df.format(date) + "', "
-						          + "         '" + profileLoc + "', "
-						          + "         '" + geoLocStr + "', "
-						          + "         '" + content + "', "
-						          + "         '" + hashtags
-						          + "')";
+						          +          "'" + String.valueOf(tweetId) + "', "
+						          +          "'" + place + "', "
+						          +          "'" + df.format(date) + "', "
+						          +          "'" + profileLoc + "', "
+						          +          "'" + geoLocStr + "', "
+						          +          "'" + content.replace('\'', ' ') + "', "
+						          +          "'" + hashtags.replace('\'', ' ')
+						          +          "')";
 				try {
-					System.out.println("=================================================");
-					System.out.println("SQLSQLSQLSQL: "+ sql);
-					System.out.println("=================================================");
 					db.insert(sql);
+					System.out.println("==> Successfully inserted a record.");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
@@ -93,7 +91,7 @@ public class Main {
 		TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
 		twitterStream.addListener(listener);
 		FilterQuery fq = new FilterQuery();
-		String keywords[] = { "iphone" };
+		String keywords[] = { "Starbucks" };
 		fq.track(keywords);
 		String[] lang = { "en" };
 		fq.language(lang);
