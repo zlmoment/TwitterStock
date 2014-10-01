@@ -52,7 +52,9 @@ public class Main {
 						          +          "')";
 				try {
 					db.insert(sql);
-					System.out.println("==> Successfully inserted a record.");
+					DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+					Date currDate = new Date();
+					System.out.println("==> Successfully inserted a record. " + dateFormat.format(currDate));
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
