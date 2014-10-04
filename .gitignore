@@ -18,6 +18,7 @@ hs_err_pid*
 .settings/
 .classpath
 .project
+bin/
 
 # My own
 twitter4j.properties
