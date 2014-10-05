@@ -30,19 +30,30 @@ public class TwitterDB {
 			connect = getConnection();
 			statement = connect.createStatement();
 			resultSet = statement.executeQuery(sql);
-			writeResultSet(resultSet);
 		} catch (Exception e) {
 			throw e;
 		} finally {
 			connect.close();
 		}
-
+	}
+	
+	public void update(String sql) throws Exception {
+		try {
+			connect = getConnection();
+			statement = connect.createStatement();
+			statement.executeUpdate(sql);
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			connect.close();
+		}
 	}
 
 	public boolean insert(String sql) throws SQLException {
 		try {
 			connect = getConnection();
-			//String sql = "INSERT INTO staff(name, age, sex, address)" + " VALUES ('Tom1', 32, 'M', 'china')";
+			// String sql = "INSERT INTO staff(name, age, sex, address)" +
+			// " VALUES ('Tom1', 32, 'M', 'china')";
 			statement = connect.createStatement();
 			int count = statement.executeUpdate(sql);
 			if (count != 0) {
