@@ -10,7 +10,7 @@ import com.hackecho.sentiment140.*;
 public class SentimentClassifier {
 
 	public static void main(String[] args) throws Exception {
-		String tableName = "starbucks_1001";
+		String tableName = "starbucks_1003";
 		Connection connect = null;
 		Statement statement = null;
 		ResultSet result = null;
